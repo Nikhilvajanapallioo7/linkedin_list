@@ -1,0 +1,6 @@
+repo-root/
+  backend/
+  frontend/
+  pipelines/
+    backend-ci-cd.yml
+    frontend-ci-cd.yml
