@@ -1,6 +1,24 @@
-repo-root/
-  backend/
-  frontend/
-  pipelines/
-    backend-ci-cd.yml
-    frontend-ci-cd.yml
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+  paths:
+    include:
+      - backend/*
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.11'
+
+- script: |
+    cd backend
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: Install backend dependencies
