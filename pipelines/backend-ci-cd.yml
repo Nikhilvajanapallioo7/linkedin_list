@@ -1,7 +1,6 @@
-trigger:
-  branches:
-    include:
-      - Back_End
+trigger: none
+
+pr: none
 
 pool:
   vmImage: ubuntu-latest
@@ -17,13 +16,7 @@ steps:
 - script: |
     python --version
     python -m pip install --upgrade pip
-    pip --version
-    ls -la
-    cat requirements.txt
-  displayName: Debug environment
-
-- script: |
-    python -m pip install -r requirements.txt
+    pip install -r requirements.txt
   displayName: Install dependencies
 
 - script: |
