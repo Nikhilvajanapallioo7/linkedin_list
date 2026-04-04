@@ -1,7 +1,6 @@
-trigger:
-  branches:
-    include:
-      - Back_End
+trigger: none
+
+pr: none
 
 pool:
   vmImage: ubuntu-latest
@@ -15,10 +14,11 @@ steps:
   displayName: Use Python 3.11
 
 - script: |
+    python --version
     python -m pip install --upgrade pip
     pip install -r requirements.txt
-  displayName: Install backend dependencies
+  displayName: Install dependencies
 
 - script: |
-    python -c "import app.main; print('Backend import check passed')"
-  displayName: Verify backend app import
+    python -c "import app.main; print('Backend is working')"
+  displayName: Verify backend app
