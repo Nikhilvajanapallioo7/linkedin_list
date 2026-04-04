@@ -14,6 +14,15 @@ steps:
   displayName: Use Python 3.11
 
 - script: |
+    echo "Current directory:"
+    pwd
+    echo "Files at repo root:"
+    ls -la
+    echo "Find requirements files:"
+    find . -name "requirements.txt"
+  displayName: Debug repo structure
+
+- script: |
     python --version
     python -m pip install --upgrade pip
     pip install -r requirements.txt
