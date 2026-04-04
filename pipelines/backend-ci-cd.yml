@@ -21,4 +21,4 @@ steps:
 
 - script: |
     python -c "import app.main; print('Backend is working')"
-  displayName: Verify backend app
+  displayName: Verify backend app import
