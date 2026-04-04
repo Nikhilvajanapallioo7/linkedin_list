@@ -9,19 +9,23 @@ pool:
 steps:
 - checkout: self
 
-# Use Python
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.11'
   displayName: Use Python 3.11
 
-# Install dependencies
 - script: |
+    python --version
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
+    pip --version
+    ls -la
+    cat requirements.txt
+  displayName: Debug environment
+
+- script: |
+    python -m pip install -r requirements.txt
   displayName: Install dependencies
 
-# Verify app (since no tests yet)
 - script: |
     python -c "import app.main; print('Backend is working')"
   displayName: Verify backend app
